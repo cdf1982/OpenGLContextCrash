@@ -69,8 +69,12 @@ class OpenGLViewController: GLKViewController {
 
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
         
-        print("glkView drawIn \(rect)")
-        glClearColor(0.0, 0.0, 0.0, 1.0)
+        print("\(Date().formatted(date: .omitted, time: .complete)) | glkView drawIn \(rect)")
+        if let context {
+            glClearColor(0.0, 1.0, 0.0, 1.0)
+        } else {
+            glClearColor(1.0, 0.0, 0.0, 1.0)
+        }
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT))
     }
 }
