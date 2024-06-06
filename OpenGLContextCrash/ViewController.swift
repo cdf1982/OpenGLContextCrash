@@ -36,21 +36,15 @@ class OpenGLViewController: GLKViewController {
     }
 
     @objc func openContext() {
-
-        if context == nil {
-            context = EAGLContext(api: .openGLES3)
-            EAGLContext.setCurrent(context)
-
-            glkView = GLKView(frame: self.view.frame, context: context!)
-            glkView.delegate = self
-            self.view.insertSubview(glkView, at: 0)
-            
-            print("Context opened")
-            
-        } else {
-            
-            print("Context was already opened")
-        }
+        
+        context = EAGLContext(api: .openGLES3)
+        EAGLContext.setCurrent(context)
+        
+        glkView = GLKView(frame: self.view.frame, context: context!)
+        glkView.delegate = self
+        self.view.insertSubview(glkView, at: 0)
+        
+        print("Context opened")
     }
     
     @objc func closeContext() {
